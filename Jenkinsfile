@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    triggers {
+  pollSCM '* * * * *'
+}
+
 
     stages {
         stage('Hello') {
@@ -9,4 +13,10 @@ pipeline {
         }
     }
 }
+ stage ( 'deployment trigger'){
+          steps {
+            build 'hol-CI'
+}
+}
+
 
